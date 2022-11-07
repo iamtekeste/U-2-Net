@@ -49,16 +49,15 @@ def muti_bce_loss_fusion(d0, d1, d2, d3, d4, d5, d6, labels_v):
 model_name = 'u2net' #'u2netp'
 
 data_dir = os.path.join(os.getcwd(), 'train_data' + os.sep)
-tra_image_dir = os.path.join('DUTS', 'DUTS-TR', 'DUTS-TR', 'im_aug' + os.sep)
-tra_label_dir = os.path.join('DUTS', 'DUTS-TR', 'DUTS-TR', 'gt_aug' + os.sep)
-
-image_ext = '.jpg'
+tra_image_dir = os.path.join('original' + os.sep)
+tra_label_dir = os.path.join('mask' + os.sep)
+image_ext = '.jpeg'
 label_ext = '.png'
 
 model_dir = os.path.join(os.getcwd(), 'saved_models', model_name + os.sep)
 
-epoch_num = 100000
-batch_size_train = 12
+epoch_num = 1000
+batch_size_train = 1
 batch_size_val = 1
 train_num = 0
 val_num = 0
@@ -113,7 +112,7 @@ ite_num = 0
 running_loss = 0.0
 running_tar_loss = 0.0
 ite_num4val = 0
-save_frq = 2000 # save the model every 2000 iterations
+save_frq = 100 # save the model every 2000 iterations
 
 for epoch in range(0, epoch_num):
     net.train()
